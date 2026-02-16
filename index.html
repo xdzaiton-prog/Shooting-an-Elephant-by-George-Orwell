@@ -9,9 +9,7 @@
 
 <style>
 
-html {
-    scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
     margin: 0;
@@ -21,11 +19,22 @@ body {
     line-height: 1.8;
 }
 
-/* HERO SECTION */
+/* Scroll Progress Bar */
+.progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 4px;
+    background: #1D4ED8;
+    width: 0%;
+    z-index: 2000;
+}
+
+/* HERO */
 
 .hero {
-    height: 90vh;
-    background: linear-gradient(rgba(11,37,69,0.75), rgba(11,37,69,0.75)), url('eye.png') center/cover no-repeat;
+    height: 95vh;
+    background: linear-gradient(rgba(11,37,69,0.8), rgba(11,37,69,0.8)), url('eye.png') center/cover no-repeat;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -36,17 +45,18 @@ body {
 
 .hero h1 {
     font-family: 'Playfair Display', serif;
-    font-size: 3.2em;
+    font-size: 3.5em;
     margin-bottom: 15px;
 }
 
 .hero p {
     font-size: 1.2em;
-    max-width: 700px;
+    max-width: 750px;
     margin: auto;
+    opacity: 0.9;
 }
 
-/* NAVIGATION */
+/* NAV */
 
 nav {
     background: #0B2545;
@@ -59,9 +69,10 @@ nav {
 
 nav a {
     color: white;
-    margin: 0 20px;
+    margin: 0 25px;
     text-decoration: none;
     font-weight: 500;
+    transition: 0.3s ease;
 }
 
 nav a:hover {
@@ -71,7 +82,7 @@ nav a:hover {
 /* SECTIONS */
 
 section {
-    padding: 90px 12%;
+    padding: 100px 12%;
     opacity: 0;
     transform: translateY(40px);
     transition: 0.8s ease;
@@ -88,22 +99,38 @@ section.visible {
 
 h2 {
     font-family: 'Playfair Display', serif;
-    font-size: 2.2em;
+    font-size: 2.3em;
     color: #0B2545;
     margin-bottom: 25px;
 }
 
-/* CONTENT CARD */
+/* SPLIT LAYOUT */
 
-.card {
-    background: white;
-    padding: 40px;
-    border-radius: 12px;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.05);
-    margin-bottom: 40px;
+.split {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
-/* QUOTES */
+.split img {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 12px;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.08);
+    transition: transform 0.4s ease;
+}
+
+.split img:hover {
+    transform: scale(1.03);
+}
+
+.text {
+    flex: 1;
+    min-width: 300px;
+}
+
+/* QUOTE */
 
 .quote {
     border-left: 5px solid #1D4ED8;
@@ -114,27 +141,13 @@ h2 {
     font-size: 1.1em;
 }
 
-/* IMAGE BLOCK */
-
-.image-block {
-    text-align: center;
-    margin: 50px 0;
-}
-
-.image-block img {
-    width: 100%;
-    max-width: 850px;
-    border-radius: 10px;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
-}
-
 /* FOOTER */
 
 footer {
     background: #0B2545;
     color: white;
     text-align: center;
-    padding: 40px;
+    padding: 50px;
     font-size: 0.9em;
 }
 
@@ -143,12 +156,13 @@ footer {
 
 <body>
 
+<div class="progress-bar" id="progressBar"></div>
+
 <div class="hero">
     <div>
         <h1>Freedom vs Role</h1>
         <p>
-        A philosophical exploration of moral autonomy, identity, and psychological imprisonment 
-        in George Orwell’s <em>Shooting an Elephant</em>.
+        A philosophical exploration of moral autonomy, identity, and the psychological imprisonment of power in George Orwell’s <em>Shooting an Elephant</em>.
         </p>
     </div>
 </div>
@@ -156,125 +170,111 @@ footer {
 <nav>
     <a href="#freedom">Freedom</a>
     <a href="#expectation">Expectation</a>
-    <a href="#paradox">Power Paradox</a>
-    <a href="#home">Freedom & Home</a>
+    <a href="#paradox">Power</a>
+    <a href="#home">Home</a>
 </nav>
 
 <section id="freedom">
-    <div class="card">
-        <h2>What Does Freedom Mean?</h2>
+    <div class="split">
+        <div class="text">
+            <h2>Freedom as Moral Autonomy</h2>
+            <p>
+            In Orwell’s essay, freedom does not mean control over others. It means control over oneself.
+            Although he carries the rifle and represents the British Empire, he does not possess true choice.
+            </p>
 
-        <p>
-        In Orwell’s essay, freedom is not political dominance but moral autonomy — 
-        the ability to act according to conscience rather than performance. 
-        Although he holds a rifle and represents imperial authority, 
-        he internally lacks choice.
-        </p>
+            <div class="quote">
+            “When the white man turns tyrant, it is his own freedom that he destroys.”
+            </div>
 
-        <div class="quote">
-        “When the white man turns tyrant, it is his own freedom that he destroys.”
+            <p>
+            Tyranny forces performance. Performance suppresses authenticity. 
+            Once authenticity disappears, moral freedom collapses.
+            Imperialism therefore imprisons both the colonized and the colonizer.
+            </p>
         </div>
-
-        <p>
-        Tyranny demands performance. Performance suppresses authenticity. 
-        Once authenticity is suppressed, freedom collapses. 
-        Orwell recognizes that imperialism does not only enslave the colonized; 
-        it psychologically traps the colonizer in a permanent role.
-        </p>
+        <img src="eye.png" alt="Elephant eye perspective">
     </div>
 </section>
 
 <section class="section-light" id="expectation">
-    <div class="card">
-        <h2>The Pressure of Public Expectation</h2>
-
-        <p>
-        The elephant is calm. Orwell knows it does not need to be killed. 
-        Yet the presence of two thousand watching faces transforms his situation. 
-        The crowd becomes an invisible authority.
-        </p>
-
-        <div class="quote">
-        “A sahib has got to act like a sahib.”
-        </div>
-
-        <p>
-        At this moment, identity collapses into role. 
-        He fears humiliation more than moral wrongdoing. 
-        Social expectation becomes a form of violence — 
-        forcing him to betray his own ethical judgment.
-        </p>
-    </div>
-
-    <div class="image-block">
+    <div class="split">
         <img src="shooting.png" alt="Officer aiming at elephant">
+        <div class="text">
+            <h2>The Violence of Public Expectation</h2>
+            <p>
+            The elephant is calm. Orwell knows it does not need to be killed.
+            Yet two thousand watching faces create psychological pressure.
+            The crowd becomes an invisible authority.
+            </p>
+
+            <div class="quote">
+            “A sahib has got to act like a sahib.”
+            </div>
+
+            <p>
+            Identity collapses into role. He fears humiliation more than moral wrongdoing.
+            Social expectation becomes a form of coercion, forcing him to betray his conscience.
+            </p>
+        </div>
     </div>
 </section>
 
 <section id="paradox">
-    <div class="card">
-        <h2>The Power Paradox</h2>
+    <h2>The Power Paradox</h2>
+    <p>
+    Outwardly powerful, inwardly trapped. Orwell describes himself as:
+    </p>
 
-        <p>
-        Outwardly, Orwell holds authority. Inwardly, he is manipulated.
-        His realization that he is controlled by the crowd reveals the paradox of imperialism:
-        the ruler is ruled.
-        </p>
-
-        <div class="quote">
-        “I was only an absurd puppet pushed to and fro by the will of those faces behind.”
-        </div>
-
-        <p>
-        Authority without freedom is psychological imprisonment. 
-        Imperial power requires constant proof of dominance, 
-        leaving no room for moral hesitation. 
-        The role of Empire becomes a mask that slowly replaces the self.
-        </p>
+    <div class="quote">
+    “An absurd puppet pushed to and fro by the will of those faces behind.”
     </div>
+
+    <p>
+    The ruler becomes ruled. The oppressor becomes dependent on the approval of the oppressed.
+    Authority becomes performance. Performance becomes imprisonment.
+    </p>
+
+    <p>
+    Imperialism demands constant proof of dominance, leaving no room for moral hesitation.
+    In sustaining power, Orwell sacrifices freedom.
+    </p>
 </section>
 
 <section class="section-light" id="home">
-    <div class="card">
-        <h2>Why Freedom Is Necessary for Home</h2>
+    <h2>Freedom and the Idea of Home</h2>
 
-        <p>
-        Home requires belonging. Belonging requires authenticity. 
-        Authenticity requires freedom.
-        </p>
+    <p>
+    Home requires belonging. Belonging requires authenticity. Authenticity requires freedom.
+    </p>
 
-        <p>
-        Orwell belongs nowhere. He is hated by the Burmese, 
-        yet emotionally detached from the Empire. 
-        Because he must constantly perform authority, 
-        he cannot exist as his true self.
-        </p>
+    <p>
+    Orwell belongs nowhere. He is hated by the Burmese and emotionally detached from the Empire.
+    Because he must constantly perform authority, he cannot exist as his true self.
+    </p>
 
-        <p>
-        A place cannot feel like home when identity is reduced to performance. 
-        Without freedom, there is no authentic self. 
-        Without self, there is no belonging.
-        </p>
+    <p>
+    A place cannot feel like home when identity is reduced to performance.
+    Without freedom, there is no self. Without self, there is no belonging.
+    </p>
 
-        <h3>Final Reflection</h3>
+    <h3>Final Reflection</h3>
 
-        <p>
-        By shooting the elephant simply to avoid humiliation, 
-        Orwell demonstrates the tragic irony of power:
-        domination destroys the dominator. 
-        Tyranny becomes self-imprisonment, 
-        and in losing his freedom, he loses the possibility of home.
-        </p>
-    </div>
+    <p>
+    By shooting the elephant simply to avoid humiliation, Orwell demonstrates the tragic irony of power:
+    domination destroys the dominator. Tyranny becomes self-imprisonment, and in losing his freedom,
+    he loses the possibility of home.
+    </p>
 </section>
 
 <footer>
-Project-Based Learning Task 6 | Philosophical Reflection on Freedom and Identity
+Project-Based Learning Task 6 | Philosophical Reflection on Freedom, Identity, and Belonging
 </footer>
 
 <script>
-const sections = document.querySelectorAll("section");
 
+/* Fade in sections */
+const sections = document.querySelectorAll("section");
 window.addEventListener("scroll", () => {
     sections.forEach(section => {
         const position = section.getBoundingClientRect().top;
@@ -283,9 +283,19 @@ window.addEventListener("scroll", () => {
         }
     });
 });
+
+/* Scroll Progress */
+window.onscroll = function() {
+    let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    let scrolled = (winScroll / height) * 100;
+    document.getElementById("progressBar").style.width = scrolled + "%";
+};
+
 </script>
 
 </body>
 </html>
+
 
 
