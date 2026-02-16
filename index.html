@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Freedom vs Role | Orwell Analysis</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
 
@@ -19,25 +19,24 @@ body {
     line-height: 1.8;
 }
 
-/* Scroll Progress Bar */
-.progress-bar {
+/* Progress Bar */
+.progress {
     position: fixed;
     top: 0;
     left: 0;
     height: 4px;
     background: #1D4ED8;
     width: 0%;
-    z-index: 2000;
+    z-index: 9999;
 }
 
 /* HERO */
-
 .hero {
-    height: 95vh;
-    background: linear-gradient(rgba(11,37,69,0.8), rgba(11,37,69,0.8)), url('eye.png') center/cover no-repeat;
+    height: 100vh;
+    background: linear-gradient(rgba(11,37,69,0.75), rgba(11,37,69,0.75)), url('eye.png') center/cover no-repeat;
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     text-align: center;
     color: white;
     padding: 20px;
@@ -45,22 +44,21 @@ body {
 
 .hero h1 {
     font-family: 'Playfair Display', serif;
-    font-size: 3.5em;
+    font-size: 3.8em;
     margin-bottom: 15px;
 }
 
 .hero p {
-    font-size: 1.2em;
+    font-size: 1.3em;
     max-width: 750px;
     margin: auto;
     opacity: 0.9;
 }
 
 /* NAV */
-
 nav {
     background: #0B2545;
-    padding: 15px;
+    padding: 18px;
     text-align: center;
     position: sticky;
     top: 0;
@@ -80,12 +78,11 @@ nav a:hover {
 }
 
 /* SECTIONS */
-
 section {
-    padding: 100px 12%;
+    padding: 120px 12%;
     opacity: 0;
     transform: translateY(40px);
-    transition: 0.8s ease;
+    transition: 1s ease;
 }
 
 section.visible {
@@ -93,36 +90,39 @@ section.visible {
     transform: translateY(0);
 }
 
-.section-light {
-    background: #f3f6fb;
+.section-alt {
+    background: linear-gradient(to bottom, #f5f8ff, #ffffff);
 }
 
 h2 {
     font-family: 'Playfair Display', serif;
-    font-size: 2.3em;
+    font-size: 2.5em;
     color: #0B2545;
-    margin-bottom: 25px;
+    margin-bottom: 30px;
 }
 
 /* SPLIT LAYOUT */
-
 .split {
     display: flex;
-    gap: 50px;
+    gap: 70px;
     align-items: center;
     flex-wrap: wrap;
 }
 
+.split.reverse {
+    flex-direction: row-reverse;
+}
+
 .split img {
     width: 100%;
-    max-width: 500px;
-    border-radius: 12px;
-    box-shadow: 0 25px 50px rgba(0,0,0,0.08);
-    transition: transform 0.4s ease;
+    max-width: 520px;
+    border-radius: 15px;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.08);
+    transition: transform 0.6s ease;
 }
 
 .split img:hover {
-    transform: scale(1.03);
+    transform: scale(1.05);
 }
 
 .text {
@@ -130,25 +130,38 @@ h2 {
     min-width: 300px;
 }
 
-/* QUOTE */
-
+/* QUOTE STYLE */
 .quote {
-    border-left: 5px solid #1D4ED8;
-    padding: 20px 25px;
+    position: relative;
+    padding: 25px 30px;
     background: #eef2ff;
-    margin: 30px 0;
+    border-left: 6px solid #1D4ED8;
+    margin: 40px 0;
     font-style: italic;
-    font-size: 1.1em;
+    font-size: 1.15em;
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: 1s ease;
 }
 
-/* FOOTER */
+.quote.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
 
+/* Highlight */
+.highlight {
+    color: #1D4ED8;
+    font-weight: 500;
+}
+
+/* Footer */
 footer {
     background: #0B2545;
     color: white;
     text-align: center;
-    padding: 50px;
-    font-size: 0.9em;
+    padding: 60px;
+    font-size: 0.95em;
 }
 
 </style>
@@ -156,13 +169,16 @@ footer {
 
 <body>
 
-<div class="progress-bar" id="progressBar"></div>
+<div class="progress" id="progress"></div>
 
 <div class="hero">
     <div>
         <h1>Freedom vs Role</h1>
         <p>
-        A philosophical exploration of moral autonomy, identity, and the psychological imprisonment of power in George Orwell’s <em>Shooting an Elephant</em>.
+        A philosophical investigation into <span class="highlight">moral autonomy</span>,
+        <span class="highlight">identity performance</span>, and the
+        <span class="highlight">psychological imprisonment of power</span>
+        in George Orwell’s <em>Shooting an Elephant</em>.
         </p>
     </div>
 </div>
@@ -178,9 +194,10 @@ footer {
     <div class="split">
         <div class="text">
             <h2>Freedom as Moral Autonomy</h2>
+
             <p>
-            In Orwell’s essay, freedom does not mean control over others. It means control over oneself.
-            Although he carries the rifle and represents the British Empire, he does not possess true choice.
+            Freedom in Orwell’s essay is not external authority but internal independence.
+            Though armed and symbolically dominant, he lacks the ability to act according to conscience.
             </p>
 
             <div class="quote">
@@ -188,24 +205,25 @@ footer {
             </div>
 
             <p>
-            Tyranny forces performance. Performance suppresses authenticity. 
-            Once authenticity disappears, moral freedom collapses.
+            Tyranny requires performance. Performance erodes authenticity.
+            Once authenticity collapses, true freedom disappears.
             Imperialism therefore imprisons both the colonized and the colonizer.
             </p>
         </div>
+
         <img src="eye.png" alt="Elephant eye perspective">
     </div>
 </section>
 
-<section class="section-light" id="expectation">
-    <div class="split">
-        <img src="shooting.png" alt="Officer aiming at elephant">
+<section class="section-alt" id="expectation">
+    <div class="split reverse">
         <div class="text">
-            <h2>The Violence of Public Expectation</h2>
+            <h2>The Coercion of Public Expectation</h2>
+
             <p>
-            The elephant is calm. Orwell knows it does not need to be killed.
-            Yet two thousand watching faces create psychological pressure.
-            The crowd becomes an invisible authority.
+            The elephant is calm. Orwell knows it need not die.
+            Yet the presence of thousands transforms hesitation into obligation.
+            The crowd becomes a silent force of control.
             </p>
 
             <div class="quote">
@@ -213,17 +231,20 @@ footer {
             </div>
 
             <p>
-            Identity collapses into role. He fears humiliation more than moral wrongdoing.
-            Social expectation becomes a form of coercion, forcing him to betray his conscience.
+            Identity dissolves into role. He fears ridicule more than moral failure.
+            Social expectation becomes a subtle but powerful form of coercion.
             </p>
         </div>
+
+        <img src="shooting.png" alt="Officer aiming at elephant">
     </div>
 </section>
 
 <section id="paradox">
     <h2>The Power Paradox</h2>
+
     <p>
-    Outwardly powerful, inwardly trapped. Orwell describes himself as:
+    Orwell describes himself as:
     </p>
 
     <div class="quote">
@@ -231,71 +252,80 @@ footer {
     </div>
 
     <p>
-    The ruler becomes ruled. The oppressor becomes dependent on the approval of the oppressed.
-    Authority becomes performance. Performance becomes imprisonment.
-    </p>
-
-    <p>
-    Imperialism demands constant proof of dominance, leaving no room for moral hesitation.
-    In sustaining power, Orwell sacrifices freedom.
+    The ruler is ruled. Authority becomes dependence.
+    Imperialism demands emotional suppression and constant performance.
+    In sustaining dominance, Orwell sacrifices freedom.
     </p>
 </section>
 
-<section class="section-light" id="home">
-    <h2>Freedom and the Idea of Home</h2>
+<section class="section-alt" id="home">
+    <h2>Freedom and the Possibility of Home</h2>
 
     <p>
-    Home requires belonging. Belonging requires authenticity. Authenticity requires freedom.
+    Home requires belonging. Belonging requires authenticity.
+    Authenticity requires freedom.
     </p>
 
     <p>
-    Orwell belongs nowhere. He is hated by the Burmese and emotionally detached from the Empire.
-    Because he must constantly perform authority, he cannot exist as his true self.
+    Orwell belongs nowhere — neither to Burma nor fully to the Empire.
+    Because he must perform authority, he cannot exist as his authentic self.
     </p>
 
     <p>
-    A place cannot feel like home when identity is reduced to performance.
-    Without freedom, there is no self. Without self, there is no belonging.
+    Without freedom, there is no authentic identity.
+    Without identity, there is no belonging.
+    Without belonging, there is no home.
     </p>
 
     <h3>Final Reflection</h3>
 
     <p>
-    By shooting the elephant simply to avoid humiliation, Orwell demonstrates the tragic irony of power:
-    domination destroys the dominator. Tyranny becomes self-imprisonment, and in losing his freedom,
-    he loses the possibility of home.
+    By shooting the elephant to avoid humiliation,
+    Orwell reveals the deepest irony of power:
+    domination destroys the dominator.
+    Tyranny becomes self-imprisonment.
     </p>
 </section>
 
 <footer>
-Project-Based Learning Task 6 | Philosophical Reflection on Freedom, Identity, and Belonging
+Philosophical Reflection | Freedom, Identity, and Belonging
 </footer>
 
 <script>
 
-/* Fade in sections */
+/* Fade sections */
 const sections = document.querySelectorAll("section");
+const quotes = document.querySelectorAll(".quote");
+
 window.addEventListener("scroll", () => {
     sections.forEach(section => {
         const position = section.getBoundingClientRect().top;
-        if(position < window.innerHeight - 100){
+        if(position < window.innerHeight - 120){
             section.classList.add("visible");
+        }
+    });
+
+    quotes.forEach(q => {
+        const pos = q.getBoundingClientRect().top;
+        if(pos < window.innerHeight - 100){
+            q.classList.add("visible");
         }
     });
 });
 
-/* Scroll Progress */
+/* Progress bar */
 window.onscroll = function() {
-    let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    let winScroll = document.documentElement.scrollTop;
     let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
     let scrolled = (winScroll / height) * 100;
-    document.getElementById("progressBar").style.width = scrolled + "%";
+    document.getElementById("progress").style.width = scrolled + "%";
 };
 
 </script>
 
 </body>
 </html>
+
 
 
 
