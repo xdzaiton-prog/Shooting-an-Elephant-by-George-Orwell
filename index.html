@@ -3,139 +3,289 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Freedom vs Role - Shooting an Elephant</title>
+<title>Freedom vs Role | Orwell Analysis</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    margin: 0;
-    background-color: #f4f4f4;
-    color: #222;
-    line-height: 1.6;
+
+html {
+    scroll-behavior: smooth;
 }
 
-header {
-    background: #1e2a38;
-    color: white;
-    padding: 40px 20px;
-    text-align: center;
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background: #ffffff;
+    color: #1f2937;
+    line-height: 1.8;
 }
+
+/* HERO SECTION */
+
+.hero {
+    height: 90vh;
+    background: linear-gradient(rgba(11,37,69,0.75), rgba(11,37,69,0.75)), url('eye.png') center/cover no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding: 20px;
+}
+
+.hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.2em;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    font-size: 1.2em;
+    max-width: 700px;
+    margin: auto;
+}
+
+/* NAVIGATION */
+
+nav {
+    background: #0B2545;
+    padding: 15px;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav a {
+    color: white;
+    margin: 0 20px;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+nav a:hover {
+    color: #60A5FA;
+}
+
+/* SECTIONS */
 
 section {
-    padding: 40px;
-    margin: 20px;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    padding: 90px 12%;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: 0.8s ease;
 }
 
-h1, h2 {
-    color: #1e2a38;
+section.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
+
+.section-light {
+    background: #f3f6fb;
+}
+
+h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2em;
+    color: #0B2545;
+    margin-bottom: 25px;
+}
+
+/* CONTENT CARD */
+
+.card {
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.05);
+    margin-bottom: 40px;
+}
+
+/* QUOTES */
 
 .quote {
+    border-left: 5px solid #1D4ED8;
+    padding: 20px 25px;
+    background: #eef2ff;
+    margin: 30px 0;
     font-style: italic;
-    background: #eef2f5;
-    padding: 15px;
-    border-left: 5px solid #1e2a38;
-    margin: 20px 0;
+    font-size: 1.1em;
 }
+
+/* IMAGE BLOCK */
+
+.image-block {
+    text-align: center;
+    margin: 50px 0;
+}
+
+.image-block img {
+    width: 100%;
+    max-width: 850px;
+    border-radius: 10px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+}
+
+/* FOOTER */
 
 footer {
-    text-align: center;
-    padding: 20px;
-    background: #1e2a38;
+    background: #0B2545;
     color: white;
+    text-align: center;
+    padding: 40px;
+    font-size: 0.9em;
 }
-</style>
 
+</style>
 </head>
+
 <body>
 
-<header>
-    <h1>Freedom vs. Role</h1>
-    <p>A Philosophical Reflection on Shooting an Elephant</p>
-</header>
-
-<section>
-    <h2>Introduction: The Paradox of Power</h2>
-    <p>
-        In <strong>Shooting an Elephant</strong>, George Orwell explores a powerful paradox:
-        Can someone with authority truly be free? Although Orwell holds political power 
-        as a British officer in Burma, he reveals that power can destroy freedom rather 
-        than protect it. This essay demonstrates that imperial authority creates a 
-        psychological prison shaped by expectation, fear, and performance.
-    </p>
-</section>
-
-<section>
-    <h2>What Does Freedom Mean?</h2>
-    <div class="quote">
-        “When the white man turns tyrant, it is his own freedom that he destroys.”
+<div class="hero">
+    <div>
+        <h1>Freedom vs Role</h1>
+        <p>
+        A philosophical exploration of moral autonomy, identity, and psychological imprisonment 
+        in George Orwell’s <em>Shooting an Elephant</em>.
+        </p>
     </div>
-    <p>
-        In this quotation, freedom does not mean physical strength or legal power.
-        Instead, it means moral autonomy — the ability to act according to one’s conscience.
-        Orwell realizes that by participating in imperialism, he sacrifices his ability 
-        to choose freely. He becomes trapped by the expectations of empire.
-    </p>
-    <p>
-        This reveals that true freedom is internal. Without moral independence,
-        authority becomes meaningless.
-    </p>
+</div>
+
+<nav>
+    <a href="#freedom">Freedom</a>
+    <a href="#expectation">Expectation</a>
+    <a href="#paradox">Power Paradox</a>
+    <a href="#home">Freedom & Home</a>
+</nav>
+
+<section id="freedom">
+    <div class="card">
+        <h2>What Does Freedom Mean?</h2>
+
+        <p>
+        In Orwell’s essay, freedom is not political dominance but moral autonomy — 
+        the ability to act according to conscience rather than performance. 
+        Although he holds a rifle and represents imperial authority, 
+        he internally lacks choice.
+        </p>
+
+        <div class="quote">
+        “When the white man turns tyrant, it is his own freedom that he destroys.”
+        </div>
+
+        <p>
+        Tyranny demands performance. Performance suppresses authenticity. 
+        Once authenticity is suppressed, freedom collapses. 
+        Orwell recognizes that imperialism does not only enslave the colonized; 
+        it psychologically traps the colonizer in a permanent role.
+        </p>
+    </div>
 </section>
 
-<section>
-    <h2>Social Expectation as a Prison</h2>
-    <p>
-        Orwell does not want to shoot the elephant once it becomes calm. However,
-        thousands of Burmese spectators are watching him. He feels pressured 
-        to perform his role as a decisive imperial officer.
-    </p>
-    <p>
-        He admits he shoots the elephant simply to avoid looking foolish.
-        This moment proves that public image controls his actions. 
-        Although he appears powerful, he is psychologically enslaved.
-    </p>
+<section class="section-light" id="expectation">
+    <div class="card">
+        <h2>The Pressure of Public Expectation</h2>
+
+        <p>
+        The elephant is calm. Orwell knows it does not need to be killed. 
+        Yet the presence of two thousand watching faces transforms his situation. 
+        The crowd becomes an invisible authority.
+        </p>
+
+        <div class="quote">
+        “A sahib has got to act like a sahib.”
+        </div>
+
+        <p>
+        At this moment, identity collapses into role. 
+        He fears humiliation more than moral wrongdoing. 
+        Social expectation becomes a form of violence — 
+        forcing him to betray his own ethical judgment.
+        </p>
+    </div>
+
+    <div class="image-block">
+        <img src="shooting.png" alt="Officer aiming at elephant">
+    </div>
 </section>
 
-<section>
-    <h2>Authority Without Freedom</h2>
-    <p>
-        Orwell carries a rifle and represents British law. Yet internally,
-        he describes himself as a “hollow, posing dummy.” 
-    </p>
-    <p>
-        This metaphor shows that he is no longer acting as an individual. 
-        He is performing a role. The tyrant, therefore, becomes a slave 
-        to his own image.
-    </p>
-    <p>
-        The essay suggests that someone may possess authority while 
-        lacking authentic freedom.
-    </p>
+<section id="paradox">
+    <div class="card">
+        <h2>The Power Paradox</h2>
+
+        <p>
+        Outwardly, Orwell holds authority. Inwardly, he is manipulated.
+        His realization that he is controlled by the crowd reveals the paradox of imperialism:
+        the ruler is ruled.
+        </p>
+
+        <div class="quote">
+        “I was only an absurd puppet pushed to and fro by the will of those faces behind.”
+        </div>
+
+        <p>
+        Authority without freedom is psychological imprisonment. 
+        Imperial power requires constant proof of dominance, 
+        leaving no room for moral hesitation. 
+        The role of Empire becomes a mask that slowly replaces the self.
+        </p>
+    </div>
 </section>
 
-<section>
-    <h2>Freedom and the Meaning of Home</h2>
-    <p>
-        For a place to feel like home, a person must have autonomy, 
-        authenticity, and emotional security. Orwell experiences none 
-        of these in Burma. He is hated by the Burmese and conflicted 
-        about his role in the empire.
-    </p>
-    <p>
-        Because he cannot act according to his true values, he feels 
-        displaced. The essay ultimately argues that belonging requires 
-        freedom. Without moral choice, identity collapses — and home 
-        becomes impossible.
-    </p>
+<section class="section-light" id="home">
+    <div class="card">
+        <h2>Why Freedom Is Necessary for Home</h2>
+
+        <p>
+        Home requires belonging. Belonging requires authenticity. 
+        Authenticity requires freedom.
+        </p>
+
+        <p>
+        Orwell belongs nowhere. He is hated by the Burmese, 
+        yet emotionally detached from the Empire. 
+        Because he must constantly perform authority, 
+        he cannot exist as his true self.
+        </p>
+
+        <p>
+        A place cannot feel like home when identity is reduced to performance. 
+        Without freedom, there is no authentic self. 
+        Without self, there is no belonging.
+        </p>
+
+        <h3>Final Reflection</h3>
+
+        <p>
+        By shooting the elephant simply to avoid humiliation, 
+        Orwell demonstrates the tragic irony of power:
+        domination destroys the dominator. 
+        Tyranny becomes self-imprisonment, 
+        and in losing his freedom, he loses the possibility of home.
+        </p>
+    </div>
 </section>
 
 <footer>
-    <p>Philosophical Reflection Project | Grade 12 Literature</p>
+Project-Based Learning Task 6 | Philosophical Reflection on Freedom and Identity
 </footer>
+
+<script>
+const sections = document.querySelectorAll("section");
+
+window.addEventListener("scroll", () => {
+    sections.forEach(section => {
+        const position = section.getBoundingClientRect().top;
+        if(position < window.innerHeight - 100){
+            section.classList.add("visible");
+        }
+    });
+});
+</script>
 
 </body>
 </html>
+
 
